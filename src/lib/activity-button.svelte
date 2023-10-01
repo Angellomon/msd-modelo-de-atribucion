@@ -1,9 +1,10 @@
 <script lang="ts">
 	export let path: string;
+	export let width: string = '200%';
 </script>
 
-<a href={path}>
-	<button>
+<a href={path} style="width: {width};">
+	<button style="width: {width};">
 		<slot />
 	</button>
 </a>
@@ -28,7 +29,7 @@
 
 		cursor: pointer;
 
-		font-size: 8vh;
+		font-size: 5vh;
 	}
 
 	button:hover {
