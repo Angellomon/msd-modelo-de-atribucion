@@ -23,6 +23,8 @@
 	div.message {
 		width: 50vw;
 		text-align: center;
+
+		font-size: 24px;
 	}
 
 	div.activity-select {
