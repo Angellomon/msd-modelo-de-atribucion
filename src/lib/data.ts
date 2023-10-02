@@ -1,4 +1,5 @@
 import type { Dayjs } from 'dayjs';
+import { read as readXLSX } from 'xlsx';
 
 interface Nameable {
 	key: string;
@@ -405,4 +406,12 @@ export function getData() {
 	console.log(data);
 
 	return data;
+}
+
+export async function loadDataFromExcel() {
+	const path = '/data.xlsx';
+
+	const file = await (await fetch(path)).arrayBuffer();
+
+	const workbook = readXLSX(file);
 }
