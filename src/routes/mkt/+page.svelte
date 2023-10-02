@@ -6,38 +6,63 @@
 <section>
 	<MartketingHeading />
 
-	<div class="activity-select">
-		<ActivityButton path="/mkt/materials-deployment">Materials Deployment</ActivityButton>
+	<div class="activity">
+		<aside>
+			<div class="option">a. Materials Deployment</div>
+			<div class="description">What Materials do I Send to Who?</div>
+		</aside>
 
-		<ActivityButton path="/mkt/material-quantity">Material Quantity for Next Cycle</ActivityButton>
+		<ActivityButton path="/mkt/materials-deployment">More Information</ActivityButton>
+	</div>
+
+	<div class="activity">
+		<aside>
+			<div class="option">b. Material Qty for next cycle</div>
+			<div class="description">Material Qty</div>
+		</aside>
+
+		<ActivityButton path="/mkt/material-quantity">More Information</ActivityButton>
 	</div>
 </section>
 
 <style>
 	section {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		flex-wrap: wrap;
 
 		justify-content: space-around;
-		align-items: center;
+		align-items: flex-start;
 
 		background-color: var(--azul-msd);
+
+		margin-left: 10vh;
 
 		height: 100vh;
 
 		/* width: 100vw; */
 	}
 
-	div.message {
-		text-align: center;
+	div.activity {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: flex-start;
 
-		font-size: 24px;
+		width: 80%;
+	}
+	div.option {
+		color: var(--verde-vivo-msd);
+
+		font-family: 'Invention Bold';
+		font-size: 2rem;
 	}
 
-	div.activity-select {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
+	div.description {
+		margin-left: 2ch;
+		font-size: 1.8rem;
+
+		margin-bottom: 20px;
 	}
 </style>
