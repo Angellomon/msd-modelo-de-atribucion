@@ -5,7 +5,7 @@
 	</p>
 
 	<div class="message">
-		Who do you want to
+		What do you want to
 		<b>plan today?</b>
 	</div>
 </div>
