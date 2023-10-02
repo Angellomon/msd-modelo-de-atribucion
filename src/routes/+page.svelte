@@ -6,8 +6,14 @@
 <main>
 	<MainHeading />
 	<div class="main-buttons">
-		<ActivityButton path="/mkt">MKT</ActivityButton>
-		<ActivityButton path="/sales">SALES</ActivityButton>
+		<aside>
+			<img src="/img/MKT-MANAGER.png" alt="MKT" />
+			<ActivityButton path="/mkt">More Information</ActivityButton>
+		</aside>
+		<aside>
+			<img src="/img/SALES-REP.png" alt="SALES" />
+			<ActivityButton path="/sales">SALES</ActivityButton>
+		</aside>
 	</div>
 
 	<img class="logo" src="/img/MSD-LOGO-B.png" alt="MSD" />
@@ -18,6 +24,11 @@
 		height: 100vh;
 
 		position: relative;
+	}
+
+	main img {
+		width: 25vh;
+		align-self: center;
 	}
 
 	img.logo {
@@ -45,11 +56,18 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		gap: 20px;
+		gap: 35vh;
 
 		justify-content: center;
 		align-items: center;
 
 		width: 100%;
+	}
+
+	aside {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-self: center;
 	}
 </style>
