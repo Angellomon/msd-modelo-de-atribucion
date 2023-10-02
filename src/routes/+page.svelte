@@ -9,6 +9,8 @@
 		<ActivityButton path="/mkt">MKT</ActivityButton>
 		<ActivityButton path="/sales">SALES</ActivityButton>
 	</div>
+
+	<img class="logo" src="/img/MSD-LOGO-B.png" alt="MSD" />
 </main>
 
 <style>
@@ -16,6 +18,15 @@
 		height: 100vh;
 
 		position: relative;
+	}
+
+	img.logo {
+		position: absolute;
+		bottom: 0;
+		/* left: 45vw; */
+		left: 45%;
+
+		width: 20vh;
 	}
 
 	main::after {
