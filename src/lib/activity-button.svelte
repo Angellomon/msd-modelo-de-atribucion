@@ -3,8 +3,8 @@
 	export let width: string = '100%';
 </script>
 
-<a href={path} style="width: {width};">
-	<button style="width: {width};">
+<a href={path}>
+	<button>
 		<slot />
 	</button>
 </a>
@@ -30,9 +30,12 @@
 		cursor: pointer;
 
 		font-size: 5vh;
+
+		min-width: 20vw;
 	}
 
 	button:hover {
-		border: 5px solid var(--azul-msd);
+		border: 5px solid white;
+		color: white;
 	}
 </style>
