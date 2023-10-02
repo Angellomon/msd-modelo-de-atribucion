@@ -23,6 +23,8 @@
 
 		<ActivityButton path="/mkt/material-quantity">More Information</ActivityButton>
 	</div>
+
+	<img src="/img/MKT-MANAGER-CIRCULO.png" alt="MKT" />
 </section>
 
 <style>
@@ -30,6 +32,8 @@
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
+
+		position: relative;
 
 		justify-content: space-around;
 		align-items: flex-start;
@@ -57,6 +61,14 @@
 
 		font-family: 'Invention Bold';
 		font-size: 2rem;
+	}
+
+	img {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+
+		width: 25vh;
 	}
 
 	div.description {

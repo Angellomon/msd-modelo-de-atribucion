@@ -12,12 +12,16 @@
 	<ActivityButton path="/sales/visit-frequency" --button-color="var(--verde-msd)"
 		>More Information</ActivityButton
 	>
+
+	<img src="/img/SALES-REP-CIRCULO.png" alt="SALES" />
 </section>
 
 <style>
 	section {
 		display: flex;
 		flex-direction: column;
+
+		position: relative;
 
 		justify-content: flex-start;
 		align-items: flex-start;
@@ -41,5 +45,13 @@
 		font-size: 1.8rem;
 
 		margin-bottom: 20px;
+	}
+
+	img {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+
+		width: 25vh;
 	}
 </style>
