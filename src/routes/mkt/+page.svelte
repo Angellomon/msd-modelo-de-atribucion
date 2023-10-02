@@ -22,7 +22,7 @@
 		justify-content: space-around;
 		align-items: center;
 
-		background-color: var(--verde-msd);
+		background-color: var(--azul-msd);
 
 		height: 100vh;
 
