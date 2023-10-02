@@ -1,33 +1,45 @@
 <script>
 	import ActivityButton from '$lib/activity-button.svelte';
+	import { SalesHeading } from '$lib/headings';
 </script>
 
 <section>
-	<div class="message">What do you want to plan today?</div>
+	<SalesHeading />
 
-	<div class="activity-select">
-		<ActivityButton path="/sales/visit-frequency">Visit Frequency</ActivityButton>
-	</div>
+	<div class="option">a. Visit Frequency</div>
+	<div class="description">How many times do I need to Visit Each HCP in this cycle?</div>
+
+	<ActivityButton path="/sales/visit-frequency" --button-color="var(--verde-msd)"
+		>More Information</ActivityButton
+	>
 </section>
 
 <style>
 	section {
 		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
+		flex-direction: column;
 
-		justify-content: center;
-		align-items: center;
+		justify-content: flex-start;
+		align-items: flex-start;
+
+		padding-left: 10vh;
+		padding-top: 5vh;
+
+		background-color: var(--verde-msd);
+		height: 95vh;
 	}
 
-	div.message {
-		width: 50vw;
-		text-align: center;
+	div.option {
+		color: var(--verde-vivo-msd);
 
-		font-size: 24px;
+		font-family: 'Invention Bold';
+		font-size: 2rem;
 	}
 
-	div.activity-select {
-		width: 50vw;
+	div.description {
+		margin-left: 2ch;
+		font-size: 1.8rem;
+
+		margin-bottom: 20px;
 	}
 </style>

@@ -1,18 +1,15 @@
 <script>
 	import ActivityButton from '$lib/activity-button.svelte';
-
-	let width = '40vw';
+	import { MartketingHeading } from '$lib/headings';
 </script>
 
 <section>
-	<div class="message">What do you want to plan today?</div>
+	<MartketingHeading />
 
 	<div class="activity-select">
-		<ActivityButton path="/mkt/materials-deployment" {width}>Materials Deployment</ActivityButton>
+		<ActivityButton path="/mkt/materials-deployment">Materials Deployment</ActivityButton>
 
-		<ActivityButton path="/mkt/material-quantity" {width}
-			>Material Quantity for Next Cycle</ActivityButton
-		>
+		<ActivityButton path="/mkt/material-quantity">Material Quantity for Next Cycle</ActivityButton>
 	</div>
 </section>
 
@@ -24,6 +21,10 @@
 
 		justify-content: space-around;
 		align-items: center;
+
+		background-color: var(--verde-msd);
+
+		height: 100vh;
 
 		/* width: 100vw; */
 	}
