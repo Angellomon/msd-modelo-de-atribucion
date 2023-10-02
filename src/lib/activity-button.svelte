@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let path: string;
-	export let width: string = '200%';
+	export let width: string = '100%';
 </script>
 
 <a href={path} style="width: {width};">
@@ -25,7 +25,7 @@
 		justify-content: center;
 		align-items: center;
 
-		padding: 10vh 10vw;
+		padding: 5vh;
 
 		cursor: pointer;
 
