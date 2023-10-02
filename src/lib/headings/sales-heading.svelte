@@ -44,6 +44,9 @@
 		font-size: 2rem;
 
 		padding: 20px 15px;
+
+		padding-left: 20vh;
+		margin-left: -20vh;
 	}
 
 	p {

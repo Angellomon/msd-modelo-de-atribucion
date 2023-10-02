@@ -13,7 +13,7 @@
 <style>
 	h1 {
 		background-color: white;
-		color: var(--verde-msd);
+		color: var(--azul-msd);
 
 		border-radius: 200px;
 
@@ -38,12 +38,14 @@
 
 	div.message {
 		background-color: white;
-		color: var(--verde-msd);
+		color: var(--azul-msd);
 
 		margin-bottom: 10vh;
 		font-size: 2rem;
 
 		padding: 20px 15px;
+		padding-left: 20vh;
+		margin-left: -20vh;
 	}
 
 	p {
