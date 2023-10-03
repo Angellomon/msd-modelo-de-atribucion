@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { selectedChannelKeys } from "$lib/store";
 	import { onDestroy, onMount } from "svelte";
-	import type { Material } from "./data";
+	import type { Channel } from "./data";
 
-	export let channels: Material[];
+	export let channels: Channel[];
 
-	let _channels: (Material & { checked: boolean })[] = [];
+	let _channels: (Channel & { checked: boolean })[] = [];
 
 	onMount(() => {
 		_channels = channels.map((m) => ({ ...m, checked: true } as any));
