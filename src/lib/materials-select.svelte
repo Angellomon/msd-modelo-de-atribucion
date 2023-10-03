@@ -10,8 +10,6 @@
 	onMount(() => {
 		_materials = materials.map((m) => ({ ...m, checked: true } as any));
 
-		console.log(_materials);
-
 		selectedMaterialKeys.set(materials.map((m) => m.key));
 	});
 
@@ -46,7 +44,7 @@
 	}
 
 	ul {
-		max-width: 300px;
+		width: 20vw;
 	}
 
 	li {
