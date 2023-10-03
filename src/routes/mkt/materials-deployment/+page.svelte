@@ -38,7 +38,7 @@
 		},
 	];
 
-	const visitedClusters: MaterialDeploymentCluster[] = [
+	export let visitedClusters: MaterialDeploymentCluster[] = [
 		{
 			key: "visited-high-interaction",
 			name: "High Interaction",
@@ -133,7 +133,7 @@
 		},
 	];
 
-	const unvisitedClusters: MaterialDeploymentCluster[] = [
+	export let unvisitedClusters: MaterialDeploymentCluster[] = [
 		{
 			key: "unvisited-potential",
 			name: "Potential",
@@ -200,7 +200,8 @@
 </script>
 
 <section>
-	<h1>Materials Deployment</h1>
+	<h1>a. Materials Deployment</h1>
+	<h2>What Material do I Send to Who?</h2>
 
 	<div class="container">
 		<div class="data-select">
@@ -225,6 +226,17 @@
 </section>
 
 <style>
+	h1 {
+		color: var(--verde-vivo-msd);
+
+		margin-left: 30px;
+	}
+
+	h2 {
+		font-family: "Invention Light";
+		margin-left: 50px;
+	}
+
 	div.container {
 		display: flex;
 		flex-direction: row;
