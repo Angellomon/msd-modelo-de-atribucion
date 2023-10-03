@@ -232,6 +232,25 @@
 <section>
 	<h1>Materials Deployment</h1>
 
-	<MaterialsSelect {materials} />
-	<ChannelsSelect {channels} />
+	<div class="container">
+		<div class="data-select">
+			<MaterialsSelect {materials} />
+			<ChannelsSelect {channels} />
+		</div>
+	</div>
 </section>
+
+<style>
+	div.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	div.data-select {
+		max-width: 35vw;
+
+		display: flex;
+		flex-direction: column;
+	}
+</style>

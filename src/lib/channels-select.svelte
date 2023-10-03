@@ -46,7 +46,7 @@
 	}
 
 	ul {
-		max-width: 300px;
+		width: 20vw;
 	}
 
 	li {
