@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ChannelsSelect from "$lib/channels-select.svelte";
 	import type { Channel, Material, MaterialDeploymentCluster } from "$lib/data";
+	import MaterialsDeploymentCluster from "$lib/materials-deployment-cluster.svelte";
 	import MaterialsSelect from "$lib/materials-select.svelte";
 
 	export const materials: Material[] = [
@@ -134,39 +135,8 @@
 
 	const unvisitedClusters: MaterialDeploymentCluster[] = [
 		{
-			key: "unvisited-high-interaction",
-			name: "High Interaction",
-			deviation: 2,
-			impacts: 20,
-			scoreAchived: 20,
-			targetScore: 40,
-
-			materialsScore: [
-				{
-					key: "januvia",
-					name: "JANUVIA 2.0",
-					scoreAchieved: 15,
-				},
-				{
-					key: "diabetes-certification",
-					name: "Diabetes Certification",
-					scoreAchieved: 24,
-				},
-				{
-					key: "inmunoverse",
-					name: "INMUNOVERSE",
-					scoreAchieved: 19,
-				},
-				{
-					key: "g9-launcjh",
-					name: "G9 LAUNCH",
-					scoreAchieved: 11,
-				},
-			],
-		},
-		{
-			key: "unvisited-medium-interaction",
-			name: "Medium Interaction",
+			key: "unvisited-potential",
+			name: "Potential",
 			deviation: 1.5,
 			impacts: 15,
 			scoreAchived: 15,
@@ -196,8 +166,8 @@
 			],
 		},
 		{
-			key: "unvisited-low-interaction",
-			name: "Low Interaction",
+			key: "unvisited-non-potential",
+			name: "Non Potential",
 			deviation: 1,
 			impacts: 5,
 			scoreAchived: 10,
@@ -237,6 +207,20 @@
 			<MaterialsSelect {materials} />
 			<ChannelsSelect {channels} />
 		</div>
+
+		<div class="clusters">
+			<div class="visited-clusters">
+				{#each visitedClusters as cluster}
+					<MaterialsDeploymentCluster {cluster} />
+				{/each}
+			</div>
+
+			<div class="unvisited-clusters">
+				{#each unvisitedClusters as cluster}
+					<MaterialsDeploymentCluster {cluster} />
+				{/each}
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -245,6 +229,8 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
+
+		gap: 20px;
 	}
 
 	div.data-select {
@@ -252,5 +238,63 @@
 
 		display: flex;
 		flex-direction: column;
+	}
+
+	div.visited-clusters {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 40px;
+
+		position: relative;
+
+		margin-left: 50px;
+	}
+
+	div.visited-clusters::before {
+		font-size: 1.5rem;
+
+		position: absolute;
+		left: -60px;
+		top: 30%;
+		content: "Visited";
+
+		color: var(--verde-vivo-msd);
+
+		transform: rotate(270deg);
+
+		z-index: 10;
+	}
+
+	div.unvisited-clusters {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 40px;
+
+		position: relative;
+
+		margin-left: 50px;
+	}
+
+	div.unvisited-clusters::before {
+		font-size: 1.5rem;
+
+		position: absolute;
+		left: -75px;
+		top: 30%;
+		content: "Unvisited";
+
+		color: var(--verde-vivo-msd);
+
+		transform: rotate(270deg);
+
+		z-index: 10;
+	}
+
+	div.clusters {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
 	}
 </style>
