@@ -1,187 +1,187 @@
 <script lang="ts">
-	import type { Franchise, MaterialsQtyCluster } from '$lib/data';
-	import FranchisesSelect from '$lib/franchises-select.svelte';
-	import MaterialsQtyClusters from '$lib/materials-qty-clusters.svelte';
+	import type { Franchise, MaterialsQtyCluster } from "$lib/data";
+	import FranchisesSelect from "$lib/franchises-select.svelte";
+	import MaterialsQtyClusters from "$lib/materials-qty-clusters.svelte";
 
 	export let franchises: Franchise[] = [
 		{
-			key: 'anestesia',
-			name: 'Anestesia'
+			key: "anestesia",
+			name: "Anestesia",
 		},
 		{
-			key: 'diabetes',
-			name: 'Diabetes'
+			key: "diabetes",
+			name: "Diabetes",
 		},
 		{
-			key: 'oncologia',
-			name: 'Oncología'
+			key: "oncologia",
+			name: "Oncología",
 		},
 		{
-			key: 'vacunas',
-			name: 'Vacunas'
-		}
+			key: "vacunas",
+			name: "Vacunas",
+		},
 	];
 
 	export let currentClusters: MaterialsQtyCluster[] = [
 		{
-			key: 'AE-current-cluster',
-			name: 'AE Cluster',
+			key: "AE-current-cluster",
+			name: "AE Cluster",
 			channel: {
-				key: 'AE',
-				name: 'AE'
+				key: "AE",
+				name: "AE",
 			},
 			materials: [
 				{
-					key: 'januvia',
-					name: 'JANUVIA 2.0'
+					key: "januvia",
+					name: "JANUVIA 2.0",
 				},
 				{
-					key: 'diabetes-certification',
-					name: 'Diabetes Certification'
+					key: "diabetes-certification",
+					name: "Diabetes Certification",
 				},
 				{
-					key: 'inmunoverse',
-					name: 'INMUNOVERSE'
+					key: "inmunoverse",
+					name: "INMUNOVERSE",
 				},
 				{
-					key: 'g9-launcjh',
-					name: 'G9 LAUNCH'
-				}
-			]
+					key: "g9-launcjh",
+					name: "G9 LAUNCH",
+				},
+			],
 		},
 		{
-			key: 'EMKT-current-cluster',
-			name: 'E-Marketing Cluster',
+			key: "EMKT-current-cluster",
+			name: "E-Marketing Cluster",
 			channel: {
-				key: 'EMKT',
-				name: 'E-Marketing'
+				key: "EMKT",
+				name: "E-Marketing",
 			},
 			materials: [
 				{
-					key: 'januvia',
-					name: 'JANUVIA 2.0'
+					key: "januvia",
+					name: "JANUVIA 2.0",
 				},
 				{
-					key: 'diabetes-certification',
-					name: 'Diabetes Certification'
+					key: "diabetes-certification",
+					name: "Diabetes Certification",
 				},
 				{
-					key: 'inmunoverse',
-					name: 'INMUNOVERSE'
+					key: "inmunoverse",
+					name: "INMUNOVERSE",
 				},
 				{
-					key: 'g9-launcjh',
-					name: 'G9 LAUNCH'
-				}
-			]
+					key: "g9-launcjh",
+					name: "G9 LAUNCH",
+				},
+			],
 		},
 		{
-			key: 'WA-current-cluster',
-			name: 'WhatsApp Current Cluster',
+			key: "WA-current-cluster",
+			name: "WhatsApp Current Cluster",
 			channel: {
-				key: 'WA',
-				name: 'WhatsApp'
+				key: "WA",
+				name: "WhatsApp",
 			},
 			materials: [
 				{
-					key: 'januvia',
-					name: 'JANUVIA 2.0'
+					key: "januvia",
+					name: "JANUVIA 2.0",
 				},
 				{
-					key: 'diabetes-certification',
-					name: 'Diabetes Certification'
+					key: "diabetes-certification",
+					name: "Diabetes Certification",
 				},
 				{
-					key: 'inmunoverse',
-					name: 'INMUNOVERSE'
+					key: "inmunoverse",
+					name: "INMUNOVERSE",
 				},
 				{
-					key: 'g9-launcjh',
-					name: 'G9 LAUNCH'
-				}
-			]
-		}
+					key: "g9-launcjh",
+					name: "G9 LAUNCH",
+				},
+			],
+		},
 	];
 
 	export let suggestedClusters: MaterialsQtyCluster[] = [
 		{
-			key: 'AE-suggested-cluster',
-			name: 'AE Cluster',
+			key: "AE-suggested-cluster",
+			name: "AE Cluster",
 			channel: {
-				key: 'AE',
-				name: 'AE'
+				key: "AE",
+				name: "AE",
 			},
 			materials: [
 				{
-					key: 'januvia',
-					name: 'JANUVIA 2.0'
+					key: "januvia",
+					name: "JANUVIA 2.0",
 				},
 				{
-					key: 'diabetes-certification',
-					name: 'Diabetes Certification'
+					key: "diabetes-certification",
+					name: "Diabetes Certification",
 				},
 				{
-					key: 'inmunoverse',
-					name: 'INMUNOVERSE'
+					key: "inmunoverse",
+					name: "INMUNOVERSE",
 				},
 				{
-					key: 'g9-launcjh',
-					name: 'G9 LAUNCH'
-				}
-			]
+					key: "g9-launcjh",
+					name: "G9 LAUNCH",
+				},
+			],
 		},
 		{
-			key: 'EMKT-suggested-cluster',
-			name: 'E-Marketing Cluster',
+			key: "EMKT-suggested-cluster",
+			name: "E-Marketing Cluster",
 			channel: {
-				key: 'EMKT',
-				name: 'E-Marketing'
+				key: "EMKT",
+				name: "E-Marketing",
 			},
 			materials: [
 				{
-					key: 'januvia',
-					name: 'JANUVIA 2.0'
+					key: "januvia",
+					name: "JANUVIA 2.0",
 				},
 				{
-					key: 'diabetes-certification',
-					name: 'Diabetes Certification'
+					key: "diabetes-certification",
+					name: "Diabetes Certification",
 				},
 				{
-					key: 'inmunoverse',
-					name: 'INMUNOVERSE'
+					key: "inmunoverse",
+					name: "INMUNOVERSE",
 				},
 				{
-					key: 'g9-launcjh',
-					name: 'G9 LAUNCH'
-				}
-			]
+					key: "g9-launcjh",
+					name: "G9 LAUNCH",
+				},
+			],
 		},
 		{
-			key: 'WA-suggested-cluster',
-			name: 'WhatsApp Cluster',
+			key: "WA-suggested-cluster",
+			name: "WhatsApp Cluster",
 			channel: {
-				key: 'WA',
-				name: 'WhatsApp'
+				key: "WA",
+				name: "WhatsApp",
 			},
 			materials: [
 				{
-					key: 'januvia',
-					name: 'JANUVIA 2.0'
+					key: "januvia",
+					name: "JANUVIA 2.0",
 				},
 				{
-					key: 'diabetes-certification',
-					name: 'Diabetes Certification'
+					key: "diabetes-certification",
+					name: "Diabetes Certification",
 				},
 				{
-					key: 'inmunoverse',
-					name: 'INMUNOVERSE'
+					key: "inmunoverse",
+					name: "INMUNOVERSE",
 				},
 				{
-					key: 'g9-launcjh',
-					name: 'G9 LAUNCH'
-				}
-			]
-		}
+					key: "g9-launcjh",
+					name: "G9 LAUNCH",
+				},
+			],
+		},
 	];
 </script>
 
@@ -203,7 +203,7 @@
 				{/each}
 			</div>
 
-			<span>SUGESTED</span>
+			<span>SUGGESTED</span>
 
 			<div class="suggested">
 				{#each suggestedClusters as cluster}
@@ -224,7 +224,7 @@
 		padding: 5px 10px;
 
 		font-size: 1.8rem;
-		font-family: 'Invention Bold';
+		font-family: "Invention Bold";
 	}
 
 	h1 {
@@ -234,7 +234,7 @@
 	}
 
 	h2 {
-		font-family: 'Invention Light';
+		font-family: "Invention Light";
 		margin-left: 50px;
 	}
 
