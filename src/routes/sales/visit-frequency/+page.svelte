@@ -1,308 +1,728 @@
 <script lang="ts">
-	import ProductsSelect from '$lib/products-select.svelte';
-	import type { Product, VisitFrequencyCluster } from '$lib/data';
-	import VisitFrequencyClusterComponent from '$lib/visit-frequency-cluster.svelte';
+	import ProductsSelect from "$lib/products-select.svelte";
+	import type { Product, VisitFrequencyCluster } from "$lib/data";
+	import VisitFrequencyClusterComponent from "$lib/visit-frequency-cluster.svelte";
 
 	export const products: Product[] = [
 		{
-			key: 'gardasil',
-			name: 'GARDASIL'
+			key: "gardasil",
+			name: "GARDASIL",
 		},
 		{
-			key: 'pulmovax',
-			name: 'PULMOVAX'
+			key: "pulmovax",
+			name: "PULMOVAX",
 		},
 		{
-			key: 'mmr',
-			name: 'MMR'
+			key: "mmr",
+			name: "MMR",
 		},
 		{
-			key: 'varivax',
-			name: 'VARIVAX'
-		}
+			key: "varivax",
+			name: "VARIVAX",
+		},
 	];
 
 	export const currentClusters: VisitFrequencyCluster[] = [
 		{
-			key: 'current-high-interaction',
-			name: 'High Interaction',
-			label: 'current',
+			key: "current-high-interaction",
+			name: "High Interaction",
+			label: "current",
 			historicData: [
 				{
 					impacts: 20,
-					month: 'Enero'
+					month: "Enero",
 				},
 				{
 					impacts: 15,
-					month: 'Febrero'
+					month: "Febrero",
 				},
 				{
 					impacts: 25,
-					month: 'Marzo'
+					month: "Marzo",
 				},
 				{
 					impacts: 35,
-					month: 'Abril'
-				}
+					month: "Abril",
+				},
 			],
 			channels: [
 				{
-					key: 'f2f-visits',
-					name: 'f2F Visits',
-					scoreAchived: 30
+					key: "f2f-visits",
+					name: "f2F Visits",
+					scoreAchieved: 30,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 20,
+						},
+						{
+							productKey: "mmr",
+							score: 50,
+						},
+					],
 				},
 				{
-					key: 'ae',
-					name: 'AE',
-					scoreAchived: 50
+					key: "ae",
+					name: "AE",
+					scoreAchieved: 50,
+					products: [
+						{
+							productKey: "pulmovax",
+							score: 40,
+						},
+						{
+							productKey: "mmr",
+							score: 30,
+						},
+						{
+							productKey: "varivax",
+							score: 20,
+						},
+					],
 				},
 				{
-					key: 'emkt',
-					name: 'E-Marketing',
-					scoreAchived: 60
+					key: "emkt",
+					name: "E-Marketing",
+					scoreAchieved: 60,
+					products: [
+						{
+							productKey: "mmr",
+							score: 40,
+						},
+						{
+							productKey: "varivax",
+							score: 50,
+						},
+						{
+							productKey: "pulmovax",
+							score: 40,
+						},
+						{
+							productKey: "gardasil",
+							score: 30,
+						},
+					],
 				},
 				{
-					key: 'whatsapp',
-					name: 'WhatsApp',
-					scoreAchived: 10
-				}
-			]
+					key: "whatsapp",
+					name: "WhatsApp",
+					scoreAchieved: 10,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 30,
+						},
+						{
+							productKey: "pulmovax",
+							score: 50,
+						},
+						{
+							productKey: "mmr",
+							score: 40,
+						},
+						{
+							productKey: "varivax",
+							score: 30,
+						},
+					],
+				},
+			],
 		},
 		{
-			key: 'current-medium-interaction',
-			name: 'Medium Interaction',
-			label: 'current',
+			key: "current-medium-interaction",
+			name: "Medium Interaction",
+			label: "current",
 			historicData: [
 				{
 					impacts: 20,
-					month: 'Enero'
+					month: "Enero",
 				},
 				{
 					impacts: 15,
-					month: 'Febrero'
+					month: "Febrero",
 				},
 				{
 					impacts: 25,
-					month: 'Marzo'
+					month: "Marzo",
 				},
 				{
 					impacts: 35,
-					month: 'Abril'
-				}
+					month: "Abril",
+				},
 			],
 			channels: [
 				{
-					key: 'f2f-visits',
-					name: 'f2F Visits',
-					scoreAchived: 30
+					key: "f2f-visits",
+					name: "f2F Visits",
+					scoreAchieved: 30,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 25,
+						},
+						{
+							productKey: "pulmovax",
+							score: 40,
+						},
+						{
+							productKey: "mmr",
+							score: 45,
+						},
+						{
+							productKey: "varivax",
+							score: 35,
+						},
+					],
 				},
 				{
-					key: 'ae',
-					name: 'AE',
-					scoreAchived: 50
+					key: "ae",
+					name: "AE",
+					scoreAchieved: 50,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 50,
+						},
+						{
+							productKey: "pulmovax",
+							score: 30,
+						},
+						{
+							productKey: "mmr",
+							score: 30,
+						},
+						{
+							productKey: "varivax",
+							score: 60,
+						},
+					],
 				},
 				{
-					key: 'emkt',
-					name: 'E-Marketing',
-					scoreAchived: 60
+					key: "emkt",
+					name: "E-Marketing",
+					scoreAchieved: 60,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 45,
+						},
+						{
+							productKey: "pulmovax",
+							score: 65,
+						},
+						{
+							productKey: "mmr",
+							score: 60,
+						},
+						{
+							productKey: "varivax",
+							score: 40,
+						},
+					],
 				},
 				{
-					key: 'whatsapp',
-					name: 'WhatsApp',
-					scoreAchived: 10
-				}
-			]
+					key: "whatsapp",
+					name: "WhatsApp",
+					scoreAchieved: 10,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 30,
+						},
+						{
+							productKey: "pulmovax",
+							score: 50,
+						},
+						{
+							productKey: "mmr",
+							score: 40,
+						},
+						{
+							productKey: "varivax",
+							score: 30,
+						},
+					],
+				},
+			],
 		},
 		{
-			key: 'current-low-interaction',
-			name: 'Low Interaction',
-			label: 'current',
+			key: "current-low-interaction",
+			name: "Low Interaction",
+			label: "current",
 			historicData: [
 				{
 					impacts: 20,
-					month: 'Enero'
+					month: "Enero",
 				},
 				{
 					impacts: 15,
-					month: 'Febrero'
+					month: "Febrero",
 				},
 				{
 					impacts: 25,
-					month: 'Marzo'
+					month: "Marzo",
 				},
 				{
 					impacts: 35,
-					month: 'Abril'
-				}
+					month: "Abril",
+				},
 			],
 			channels: [
 				{
-					key: 'f2f-visits',
-					name: 'f2F Visits',
-					scoreAchived: 30
+					key: "f2f-visits",
+					name: "f2F Visits",
+					scoreAchieved: 30,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 40,
+						},
+						{
+							productKey: "pulmovax",
+							score: 55,
+						},
+						{
+							productKey: "mmr",
+							score: 60,
+						},
+						{
+							productKey: "varivax",
+							score: 60,
+						},
+					],
 				},
 				{
-					key: 'ae',
-					name: 'AE',
-					scoreAchived: 50
+					key: "ae",
+					name: "AE",
+					scoreAchieved: 50,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 55,
+						},
+						{
+							productKey: "pulmovax",
+							score: 55,
+						},
+						{
+							productKey: "mmr",
+							score: 45,
+						},
+						{
+							productKey: "varivax",
+							score: 35,
+						},
+					],
 				},
 				{
-					key: 'emkt',
-					name: 'E-Marketing',
-					scoreAchived: 60
+					key: "emkt",
+					name: "E-Marketing",
+					scoreAchieved: 60,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 30,
+						},
+						{
+							productKey: "pulmovax",
+							score: 50,
+						},
+						{
+							productKey: "mmr",
+							score: 40,
+						},
+						{
+							productKey: "varivax",
+							score: 30,
+						},
+					],
 				},
 				{
-					key: 'whatsapp',
-					name: 'WhatsApp',
-					scoreAchived: 10
-				}
-			]
-		}
+					key: "whatsapp",
+					name: "WhatsApp",
+					scoreAchieved: 10,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 30,
+						},
+						{
+							productKey: "pulmovax",
+							score: 50,
+						},
+						{
+							productKey: "mmr",
+							score: 40,
+						},
+						{
+							productKey: "varivax",
+							score: 30,
+						},
+					],
+				},
+			],
+		},
 	];
 
 	export const suggestedClusters: VisitFrequencyCluster[] = [
 		{
-			key: 'suggested-high-interaction',
-			name: 'High Interaction',
-			label: 'Suggested',
+			key: "suggested-high-interaction",
+			name: "High Interaction",
+			label: "Suggested",
 			historicData: [
 				{
 					impacts: 15,
-					month: 'Enero'
+					month: "Enero",
 				},
 				{
 					impacts: 30,
-					month: 'Febrero'
+					month: "Febrero",
 				},
 				{
 					impacts: 25,
-					month: 'Marzo'
+					month: "Marzo",
 				},
 				{
 					impacts: 25,
-					month: 'Abril'
-				}
+					month: "Abril",
+				},
 			],
 			channels: [
 				{
-					key: 'f2f-visits',
-					name: 'f2F Visits',
-					scoreAchived: 15
+					key: "f2f-visits",
+					name: "f2F Visits",
+					scoreAchieved: 15,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 55,
+						},
+						{
+							productKey: "pulmovax",
+							score: 65,
+						},
+						{
+							productKey: "mmr",
+							score: 60,
+						},
+						{
+							productKey: "varivax",
+							score: 75,
+						},
+					],
 				},
 				{
-					key: 'ae',
-					name: 'AE',
-					scoreAchived: 80
+					key: "ae",
+					name: "AE",
+					scoreAchieved: 80,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 65,
+						},
+						{
+							productKey: "pulmovax",
+							score: 75,
+						},
+						{
+							productKey: "mmr",
+							score: 80,
+						},
+						{
+							productKey: "varivax",
+							score: 75,
+						},
+					],
 				},
 				{
-					key: 'emkt',
-					name: 'E-Marketing',
-					scoreAchived: 40
+					key: "emkt",
+					name: "E-Marketing",
+					scoreAchieved: 40,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 75,
+						},
+						{
+							productKey: "pulmovax",
+							score: 55,
+						},
+						{
+							productKey: "mmr",
+							score: 50,
+						},
+						{
+							productKey: "varivax",
+							score: 65,
+						},
+					],
 				},
 				{
-					key: 'whatsapp',
-					name: 'WhatsApp',
-					scoreAchived: 30
-				}
-			]
+					key: "whatsapp",
+					name: "WhatsApp",
+					scoreAchieved: 30,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 85,
+						},
+						{
+							productKey: "pulmovax",
+							score: 85,
+						},
+						{
+							productKey: "mmr",
+							score: 60,
+						},
+						{
+							productKey: "varivax",
+							score: 75,
+						},
+					],
+				},
+			],
 		},
 		{
-			key: 'suggested-medium-interaction',
-			name: 'Medium Interaction',
-			label: 'Suggested',
+			key: "suggested-medium-interaction",
+			name: "Medium Interaction",
+			label: "Suggested",
 			historicData: [
 				{
 					impacts: 25,
-					month: 'Enero'
+					month: "Enero",
 				},
 				{
 					impacts: 35,
-					month: 'Febrero'
+					month: "Febrero",
 				},
 				{
 					impacts: 30,
-					month: 'Marzo'
+					month: "Marzo",
 				},
 				{
 					impacts: 40,
-					month: 'Abril'
-				}
+					month: "Abril",
+				},
 			],
 			channels: [
 				{
-					key: 'f2f-visits',
-					name: 'f2F Visits',
-					scoreAchived: 40
+					key: "f2f-visits",
+					name: "f2F Visits",
+					scoreAchieved: 40,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 60,
+						},
+						{
+							productKey: "pulmovax",
+							score: 70,
+						},
+						{
+							productKey: "mmr",
+							score: 80,
+						},
+						{
+							productKey: "varivax",
+							score: 75,
+						},
+					],
 				},
 				{
-					key: 'ae',
-					name: 'AE',
-					scoreAchived: 50
+					key: "ae",
+					name: "AE",
+					scoreAchieved: 50,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 45,
+						},
+						{
+							productKey: "pulmovax",
+							score: 65,
+						},
+						{
+							productKey: "mmr",
+							score: 65,
+						},
+						{
+							productKey: "varivax",
+							score: 85,
+						},
+					],
 				},
 				{
-					key: 'emkt',
-					name: 'E-Marketing',
-					scoreAchived: 100
+					key: "emkt",
+					name: "E-Marketing",
+					scoreAchieved: 100,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 85,
+						},
+						{
+							productKey: "pulmovax",
+							score: 90,
+						},
+						{
+							productKey: "mmr",
+							score: 65,
+						},
+						{
+							productKey: "varivax",
+							score: 85,
+						},
+					],
 				},
 				{
-					key: 'whatsapp',
-					name: 'WhatsApp',
-					scoreAchived: 80
-				}
-			]
+					key: "whatsapp",
+					name: "WhatsApp",
+					scoreAchieved: 80,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 65,
+						},
+						{
+							productKey: "pulmovax",
+							score: 55,
+						},
+						{
+							productKey: "mmr",
+							score: 70,
+						},
+						{
+							productKey: "varivax",
+							score: 95,
+						},
+					],
+				},
+			],
 		},
 		{
-			key: 'suggested-low-interaction',
-			name: 'Low Interaction',
-			label: 'Suggested',
+			key: "suggested-low-interaction",
+			name: "Low Interaction",
+			label: "Suggested",
 			historicData: [
 				{
 					impacts: 10,
-					month: 'Enero'
+					month: "Enero",
 				},
 				{
 					impacts: 15,
-					month: 'Febrero'
+					month: "Febrero",
 				},
 				{
 					impacts: 33,
-					month: 'Marzo'
+					month: "Marzo",
 				},
 				{
 					impacts: 35,
-					month: 'Abril'
-				}
+					month: "Abril",
+				},
 			],
 			channels: [
 				{
-					key: 'f2f-visits',
-					name: 'f2F Visits',
-					scoreAchived: 50
+					key: "f2f-visits",
+					name: "f2F Visits",
+					scoreAchieved: 50,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 65,
+						},
+						{
+							productKey: "pulmovax",
+							score: 65,
+						},
+						{
+							productKey: "mmr",
+							score: 50,
+						},
+						{
+							productKey: "varivax",
+							score: 55,
+						},
+					],
 				},
 				{
-					key: 'ae',
-					name: 'AE',
-					scoreAchived: 45
+					key: "ae",
+					name: "AE",
+					scoreAchieved: 45,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 45,
+						},
+						{
+							productKey: "pulmovax",
+							score: 65,
+						},
+						{
+							productKey: "mmr",
+							score: 60,
+						},
+						{
+							productKey: "varivax",
+							score: 75,
+						},
+					],
 				},
 				{
-					key: 'emkt',
-					name: 'E-Marketing',
-					scoreAchived: 60
+					key: "emkt",
+					name: "E-Marketing",
+					scoreAchieved: 60,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 55,
+						},
+						{
+							productKey: "pulmovax",
+							score: 65,
+						},
+						{
+							productKey: "mmr",
+							score: 60,
+						},
+						{
+							productKey: "varivax",
+							score: 75,
+						},
+					],
 				},
 				{
-					key: 'whatsapp',
-					name: 'WhatsApp',
-					scoreAchived: 70
-				}
-			]
-		}
+					key: "whatsapp",
+					name: "WhatsApp",
+					scoreAchieved: 70,
+					products: [
+						{
+							productKey: "gardasil",
+							score: 55,
+						},
+						{
+							productKey: "pulmovax",
+							score: 65,
+						},
+						{
+							productKey: "mmr",
+							score: 60,
+						},
+						{
+							productKey: "varivax",
+							score: 75,
+						},
+					],
+				},
+			],
+		},
 	];
 
 	function calculateImpacts(cluster: VisitFrequencyCluster) {
 		let acc = 0;
 
 		for (let ch of cluster.channels) {
-			acc += ch.scoreAchived;
+			acc += ch.scoreAchieved;
 		}
 
 		return acc;
@@ -332,7 +752,7 @@
 						impacts={calculateImpacts(cluster)}
 						chartData={{
 							current: currentClusters[i].historicData,
-							suggested: suggestedClusters[i].historicData
+							suggested: suggestedClusters[i].historicData,
 						}}
 					/>
 				{/each}
@@ -358,7 +778,7 @@
 	}
 
 	h2 {
-		font-family: 'Invention Light';
+		font-family: "Invention Light";
 
 		/* margin: 10px 0; */
 		margin-left: 50px;
@@ -415,7 +835,7 @@
 		position: absolute;
 		left: -60px;
 		top: 30%;
-		content: 'Current';
+		content: "Current";
 
 		color: var(--verde-vivo-msd);
 
@@ -441,7 +861,7 @@
 		position: absolute;
 		left: -75px;
 		top: 30%;
-		content: 'Suggested';
+		content: "Suggested";
 
 		color: var(--verde-vivo-msd);
 
@@ -479,7 +899,7 @@
 		text-decoration: none;
 		color: white;
 
-		font-family: 'Invention Bold';
+		font-family: "Invention Bold";
 	}
 
 	div.buttons-group a:hover {
