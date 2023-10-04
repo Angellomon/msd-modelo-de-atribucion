@@ -1,14 +1,16 @@
 <script lang="ts">
-	import { selectedProductsKeys } from '$lib/store';
-	import { onDestroy, onMount } from 'svelte';
-	import type { Product } from './data';
+	import { selectedProductsKeys } from "$lib/store";
+	import { onDestroy, onMount } from "svelte";
+	import type { Product } from "./data";
 
 	export let products: Product[];
 
-	let _products: (Product & { checked: boolean })[] = [];
+	let _products: (Product & { checked: boolean })[] = products.map(
+		(m) => ({ ...m, checked: true } as any),
+	);
 
 	onMount(() => {
-		_products = products.map((m) => ({ ...m, checked: true } as any));
+		// _products = products.map((m) => ({ ...m, checked: true } as any));
 
 		selectedProductsKeys.set(products.map((m) => m.key));
 	});
@@ -35,7 +37,7 @@
 <style>
 	div.title {
 		color: var(--verde-vivo-msd);
-		font-family: 'Invention Bold';
+		font-family: "Invention Bold";
 	}
 
 	div.menu {
@@ -56,7 +58,7 @@
 		right: 0;
 	}
 
-	input[type='checkbox']::before {
+	input[type="checkbox"]::before {
 		background-color: var(--verde-msd);
 	}
 </style>
