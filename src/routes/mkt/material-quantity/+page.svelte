@@ -34,18 +34,22 @@
 				{
 					key: "januvia",
 					name: "JANUVIA 2.0",
+					franchiseKey: "oncology",
 				},
 				{
 					key: "diabetes-certification",
 					name: "Diabetes Certification",
+					franchiseKey: "diabetes",
 				},
 				{
 					key: "inmunoverse",
 					name: "INMUNOVERSE",
+					franchiseKey: "daibetes",
 				},
 				{
 					key: "g9-launcjh",
 					name: "G9 LAUNCH",
+					franchiseKey: "vacunas",
 				},
 			],
 		},
@@ -59,19 +63,23 @@
 			materials: [
 				{
 					key: "januvia",
-					name: "JANUVIA 2.0",
+					name: "JANUVIA 2.10",
+					franchiseKey: "oncologia",
 				},
 				{
 					key: "diabetes-certification",
 					name: "Diabetes Certification",
+					franchiseKey: "oncologia",
 				},
 				{
 					key: "inmunoverse",
 					name: "INMUNOVERSE",
+					franchiseKey: "diabetes",
 				},
 				{
 					key: "g9-launcjh",
 					name: "G9 LAUNCH",
+					franchiseKey: "anestesia",
 				},
 			],
 		},
@@ -86,18 +94,22 @@
 				{
 					key: "januvia",
 					name: "JANUVIA 2.0",
+					franchiseKey: "anestesia",
 				},
 				{
 					key: "diabetes-certification",
 					name: "Diabetes Certification",
+					franchiseKey: "anestesia",
 				},
 				{
 					key: "inmunoverse",
 					name: "INMUNOVERSE",
+					franchiseKey: "oncologia",
 				},
 				{
 					key: "g9-launcjh",
 					name: "G9 LAUNCH",
+					franchiseKey: "diabetes",
 				},
 			],
 		},
@@ -115,18 +127,22 @@
 				{
 					key: "januvia",
 					name: "JANUVIA 2.0",
+					franchiseKey: "vacunas",
 				},
 				{
 					key: "diabetes-certification",
 					name: "Diabetes Certification",
+					franchiseKey: "vacunas",
 				},
 				{
 					key: "inmunoverse",
 					name: "INMUNOVERSE",
+					franchiseKey: "diabetes",
 				},
 				{
 					key: "g9-launcjh",
 					name: "G9 LAUNCH",
+					franchiseKey: "anestesia",
 				},
 			],
 		},
@@ -141,18 +157,22 @@
 				{
 					key: "januvia",
 					name: "JANUVIA 2.0",
+					franchiseKey: "vacunas",
 				},
 				{
 					key: "diabetes-certification",
 					name: "Diabetes Certification",
+					franchiseKey: "vacunas",
 				},
 				{
 					key: "inmunoverse",
 					name: "INMUNOVERSE",
+					franchiseKey: "diabetes",
 				},
 				{
 					key: "g9-launcjh",
 					name: "G9 LAUNCH",
+					franchiseKey: "oncologia",
 				},
 			],
 		},
@@ -167,18 +187,22 @@
 				{
 					key: "januvia",
 					name: "JANUVIA 2.0",
+					franchiseKey: "oncologia",
 				},
 				{
 					key: "diabetes-certification",
 					name: "Diabetes Certification",
+					franchiseKey: "vacunas",
 				},
 				{
 					key: "inmunoverse",
 					name: "INMUNOVERSE",
+					franchiseKey: "diabetes",
 				},
 				{
 					key: "g9-launcjh",
 					name: "G9 LAUNCH",
+					franchiseKey: "anestesia",
 				},
 			],
 		},
