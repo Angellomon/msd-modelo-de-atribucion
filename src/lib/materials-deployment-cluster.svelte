@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { MaterialDeploymentCluster } from "./data";
 
+	import { selectedChannelKeys, selectedMaterialKeys } from "$lib/store";
+
 	export let cluster: MaterialDeploymentCluster;
 
 	export let max = 100;
@@ -8,7 +10,7 @@
 
 <div class="cluster">
 	<div class="bars">
-		{#each cluster.materialsScore as material (material.key)}
+		{#each cluster.materialsScore.filter( (m) => $selectedMaterialKeys.includes(m.key), ) as material (material.key)}
 			<div class="bar">
 				<progress id={material.key} {max} value={material.scoreAchieved}>{material.name}</progress>
 				<div class="name">
@@ -20,7 +22,11 @@
 
 	<div class="cluster-info">
 		<p>CLUSTER: {cluster.name}</p>
-		<p>CHANNEL:</p>
+		<p>
+			CHANNEL: {cluster.materialsScore
+				.filter((m) => $selectedChannelKeys.includes(m.channelKey))
+				.map((m) => m.channelKey)}
+		</p>
 	</div>
 
 	<div class="scores">
