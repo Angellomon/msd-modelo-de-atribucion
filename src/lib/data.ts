@@ -49,9 +49,13 @@ export type VisitFrequencyCluster = Nameable & {
 	label: string;
 };
 
+type MaterialQty = Material & {
+	franchiseKey: string;
+};
+
 export type MaterialsQtyCluster = Nameable & {
 	channel: Channel;
-	materials: Material[];
+	materials: MaterialQty[];
 };
 
 export type HistoricData = {
