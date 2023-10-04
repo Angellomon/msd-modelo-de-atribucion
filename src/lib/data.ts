@@ -39,8 +39,15 @@ export type MaterialDeploymentCluster = Nameable & {
 	impacts: number;
 };
 
+type ProductScore = {
+	productKey: string;
+	score: number;
+};
+
 export type ChannelScore = Channel & {
-	scoreAchived: number;
+	scoreAchieved: number;
+
+	products: ProductScore[];
 };
 
 export type VisitFrequencyCluster = Nameable & {
