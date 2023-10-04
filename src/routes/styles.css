@@ -31,3 +31,38 @@
 
 	background-color: var(--azul-msd);
 }
+
+input[type="checkbox"] {
+	/* Add if not using autoprefixer */
+	-webkit-appearance: none;
+	appearance: none;
+	/* For iOS < 15 to remove gradient background */
+	background-color: var(--verde-vivo-msd);
+	/* Not removed via appearance */
+	margin: 0;
+
+	font: inherit;
+	color: var(--azul-msd);
+	width: 1.15em;
+	height: 1.15em;
+	border: none;
+	border-radius: 0.15em;
+	transform: translateY(-1.3em);
+
+	display: grid;
+  place-content: center;
+  }
+
+  input[type="checkbox"]::before {
+	content: "";
+	width: 0.5em;
+	height: 0.5em;
+	transform: scale(0);
+	transition: 120ms transform ease-in-out;
+	/* box-shadow: inset 1em 1em var(--azul-msd); */
+
+	background-color: var(--azul-msd);
+  }
+  input[type="checkbox"]:checked::before {
+	transform: scale(1);
+  }
