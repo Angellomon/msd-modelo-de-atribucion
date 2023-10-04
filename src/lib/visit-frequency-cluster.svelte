@@ -1,13 +1,56 @@
 <script lang="ts">
-	import type { VisitFrequencyCluster } from './data';
+	import { afterUpdate } from 'svelte';
+	import type { HistoricData, VisitFrequencyCluster } from './data';
+	import Chart from 'chart.js/auto';
+
+	Chart.defaults.color = '#fff';
 
 	export let cluster: VisitFrequencyCluster;
 
 	export let impacts: number;
+
+	export let chartData: {
+		suggested: HistoricData[];
+		current: HistoricData[];
+	} | null = null;
+
+	let canvasCtx: any;
+	let chart: Chart;
+
+	afterUpdate(() => {
+		if (!chartData) return;
+
+		if (chart) chart.destroy();
+
+		chart = new Chart(canvasCtx, {
+			type: 'line',
+			data: {
+				labels: chartData.current.map((c) => c.month),
+				datasets: [
+					{
+						label: 'Current',
+						data: chartData.current.map((d) => d.impacts),
+						borderColor: '#bed74b',
+						backgroundColor: '#bed74b'
+					},
+					{
+						label: 'Suggested',
+						data: chartData.suggested.map((d) => d.impacts),
+						borderColor: '#0c2340',
+						backgroundColor: '#0c2340'
+					}
+				]
+			}
+		});
+	});
 </script>
 
 <div class="cluster">
-	<div class="graphics" />
+	<div class="graphics">
+		{#if chartData}
+			<canvas bind:this={canvasCtx} />
+		{/if}
+	</div>
 
 	<div class="cluster-info">
 		<p>CLUSTER: <span>{cluster.name}</span></p>
