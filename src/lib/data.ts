@@ -26,6 +26,7 @@ export type TMaterial = {
 
 export type MaterialScore = Material & {
 	scoreAchieved: number;
+	channelKey: string;
 };
 
 export type MaterialDeploymentCluster = Nameable & {
