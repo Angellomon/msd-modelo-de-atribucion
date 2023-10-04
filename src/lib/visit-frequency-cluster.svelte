@@ -7,8 +7,12 @@
 	Chart.defaults.color = "#fff";
 
 	export let cluster: VisitFrequencyCluster;
+	export let suggestedImpacts: number = 0;
+	export let currentImpacts: number = 0;
 
-	export let impacts: number;
+	// export let impacts: number;
+
+	export let impacts = 0;
 
 	export let chartData: {
 		suggested: HistoricData[];
@@ -26,17 +30,17 @@
 		chart = new Chart(canvasCtx, {
 			type: "line",
 			data: {
-				labels: chartData.current.map((c) => c.month),
+				labels: [...chartData.current.map((c) => c.month), "Current"],
 				datasets: [
 					{
 						label: "Current",
-						data: chartData.current.map((d) => d.impacts),
+						data: [...chartData.current.map((d) => d.impacts), currentImpacts],
 						borderColor: "#bed74b",
 						backgroundColor: "#bed74b",
 					},
 					{
 						label: "Suggested",
-						data: chartData.suggested.map((d) => d.impacts),
+						data: [...chartData.suggested.map((d) => d.impacts), suggestedImpacts],
 						borderColor: "#0c2340",
 						backgroundColor: "#0c2340",
 					},
