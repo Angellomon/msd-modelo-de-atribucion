@@ -12,7 +12,7 @@
 		</aside>
 		<aside>
 			<img src="/img/SALES-REP.png" alt="SALES" />
-			<ActivityButton path="/sales">SALES</ActivityButton>
+			<ActivityButton path="/sales">More Information</ActivityButton>
 		</aside>
 	</div>
 
