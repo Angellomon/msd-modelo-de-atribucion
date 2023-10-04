@@ -1,4 +1,3 @@
-import type { Dayjs } from "dayjs";
 import { read as readXLSX } from "xlsx";
 
 interface Nameable {
@@ -45,6 +44,8 @@ export type ChannelScore = Channel & {
 
 export type VisitFrequencyCluster = Nameable & {
 	channels: ChannelScore[];
+	historicData: HistoricData[];
+	label: string;
 };
 
 export type MaterialsQtyCluster = Nameable & {
@@ -53,9 +54,9 @@ export type MaterialsQtyCluster = Nameable & {
 };
 
 export type HistoricData = {
-	clusterKey: string;
+	// label: string;
 	impacts: number;
-	date: Dayjs;
+	month: string;
 };
 
 export type ProductsCluster = {};
