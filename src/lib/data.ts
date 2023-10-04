@@ -9,6 +9,7 @@ interface Nameable {
 export type Franchise = Nameable & {};
 export type Channel = Nameable & {};
 export type Material = Nameable & {};
+export type Product = Nameable & {};
 
 export type TMaterial = {
 	targetScore: number;
@@ -17,12 +18,12 @@ export type TMaterial = {
 	name: string;
 };
 
-export type Product = {
-	targetScore: number;
-	scoreAchieved: number;
-	deviation: number;
-	name: string;
-};
+// export type Product = {
+// 	targetScore: number;
+// 	scoreAchieved: number;
+// 	deviation: number;
+// 	name: string;
+// };
 
 export type MaterialScore = Material & {
 	scoreAchieved: number;
