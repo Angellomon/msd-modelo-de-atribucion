@@ -316,6 +316,12 @@
 	<div class="container">
 		<div class="data-select">
 			<ProductsSelect {products} />
+
+			<div class="buttons-group">
+				<a href="#">BOTON</a>
+				<a href="#">EXPORT HCP</a>
+				<a href="#">PLAN DETAIL</a>
+			</div>
 		</div>
 
 		<div class="clusters">
@@ -389,6 +395,7 @@
 
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 	}
 
 	div.current-clusters {
@@ -455,5 +462,27 @@
 		right: 25px;
 
 		width: 20vh;
+	}
+
+	div.buttons-group {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 5px;
+
+		margin-left: 50px;
+		padding-bottom: 50px;
+		/* align-items: center; */
+	}
+
+	div.buttons-group a {
+		text-decoration: none;
+		color: white;
+
+		font-family: 'Invention Bold';
+	}
+
+	div.buttons-group a:hover {
+		color: var(--verde-vivo-msd);
 	}
 </style>
