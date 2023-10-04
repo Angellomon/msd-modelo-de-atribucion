@@ -1,7 +1,9 @@
 <script lang="ts">
 	import ProductsSelect from "$lib/products-select.svelte";
-	import type { Product, VisitFrequencyCluster } from "$lib/data";
+	import type { Product, VisitFrequencyCluster as TVisitFrequencyCluster } from "$lib/data";
 	import VisitFrequencyClusterComponent from "$lib/visit-frequency-cluster.svelte";
+	import { selectedProductsKeys } from "$lib/store";
+	import { onMount } from "svelte";
 
 	export const products: Product[] = [
 		{
@@ -22,26 +24,26 @@
 		},
 	];
 
-	export const currentClusters: VisitFrequencyCluster[] = [
+	export const currentClusters: TVisitFrequencyCluster[] = [
 		{
 			key: "current-high-interaction",
 			name: "High Interaction",
 			label: "current",
 			historicData: [
 				{
-					impacts: 20,
+					impacts: 300,
 					month: "Enero",
 				},
 				{
-					impacts: 15,
+					impacts: 215,
 					month: "Febrero",
 				},
 				{
-					impacts: 25,
+					impacts: 325,
 					month: "Marzo",
 				},
 				{
-					impacts: 35,
+					impacts: 435,
 					month: "Abril",
 				},
 			],
@@ -134,19 +136,19 @@
 			label: "current",
 			historicData: [
 				{
-					impacts: 20,
+					impacts: 320,
 					month: "Enero",
 				},
 				{
-					impacts: 15,
+					impacts: 415,
 					month: "Febrero",
 				},
 				{
-					impacts: 25,
+					impacts: 225,
 					month: "Marzo",
 				},
 				{
-					impacts: 35,
+					impacts: 335,
 					month: "Abril",
 				},
 			],
@@ -251,19 +253,19 @@
 			label: "current",
 			historicData: [
 				{
-					impacts: 20,
+					impacts: 420,
 					month: "Enero",
 				},
 				{
-					impacts: 15,
+					impacts: 315,
 					month: "Febrero",
 				},
 				{
-					impacts: 25,
+					impacts: 225,
 					month: "Marzo",
 				},
 				{
-					impacts: 35,
+					impacts: 235,
 					month: "Abril",
 				},
 			],
@@ -364,26 +366,26 @@
 		},
 	];
 
-	export const suggestedClusters: VisitFrequencyCluster[] = [
+	export const suggestedClusters: TVisitFrequencyCluster[] = [
 		{
 			key: "suggested-high-interaction",
 			name: "High Interaction",
 			label: "Suggested",
 			historicData: [
 				{
-					impacts: 15,
+					impacts: 215,
 					month: "Enero",
 				},
 				{
-					impacts: 30,
+					impacts: 330,
 					month: "Febrero",
 				},
 				{
-					impacts: 25,
+					impacts: 425,
 					month: "Marzo",
 				},
 				{
-					impacts: 25,
+					impacts: 325,
 					month: "Abril",
 				},
 			],
@@ -488,19 +490,19 @@
 			label: "Suggested",
 			historicData: [
 				{
-					impacts: 25,
+					impacts: 325,
 					month: "Enero",
 				},
 				{
-					impacts: 35,
+					impacts: 335,
 					month: "Febrero",
 				},
 				{
-					impacts: 30,
+					impacts: 230,
 					month: "Marzo",
 				},
 				{
-					impacts: 40,
+					impacts: 440,
 					month: "Abril",
 				},
 			],
@@ -605,19 +607,19 @@
 			label: "Suggested",
 			historicData: [
 				{
-					impacts: 10,
+					impacts: 310,
 					month: "Enero",
 				},
 				{
-					impacts: 15,
+					impacts: 315,
 					month: "Febrero",
 				},
 				{
-					impacts: 33,
+					impacts: 333,
 					month: "Marzo",
 				},
 				{
-					impacts: 35,
+					impacts: 435,
 					month: "Abril",
 				},
 			],
@@ -652,19 +654,19 @@
 					products: [
 						{
 							productKey: "gardasil",
-							score: 45,
+							score: 345,
 						},
 						{
 							productKey: "pulmovax",
-							score: 65,
+							score: 265,
 						},
 						{
 							productKey: "mmr",
-							score: 60,
+							score: 460,
 						},
 						{
 							productKey: "varivax",
-							score: 75,
+							score: 475,
 						},
 					],
 				},
@@ -718,11 +720,44 @@
 		},
 	];
 
-	function calculateImpacts(cluster: VisitFrequencyCluster) {
+	const calculateClusterImpact = (c: TVisitFrequencyCluster) =>
+		c.channels.reduce(
+			(prev, curr) =>
+				prev +
+				curr.products
+					.filter((p) => $selectedProductsKeys.includes(p.productKey))
+					.reduce((prev, curr) => prev + curr.score, 0),
+			0,
+		);
+
+	let historicCurrentImpacts: number[];
+	let historicSuggestedImpacts: number[];
+
+	onMount(() => {
+		historicCurrentImpacts = currentClusters.map((c) => calculateClusterImpact(c));
+
+		historicSuggestedImpacts = suggestedClusters.map((c) => calculateClusterImpact(c));
+	});
+
+	$: {
+		historicCurrentImpacts = currentClusters.map((c) => calculateClusterImpact(c));
+
+		historicSuggestedImpacts = suggestedClusters.map((c) => calculateClusterImpact(c));
+		console.log($selectedProductsKeys);
+
+		// console.log(historicCurrentImpacts);
+		// console.log(historicSuggestedImpacts);
+	}
+
+	function calculateImpacts(cluster: TVisitFrequencyCluster) {
 		let acc = 0;
 
-		for (let ch of cluster.channels) {
-			acc += ch.scoreAchieved;
+		console.log($selectedProductsKeys);
+
+		for (let channel of cluster.channels) {
+			for (let product of channel.products) {
+				if ($selectedProductsKeys.includes(product.productKey)) acc += channel.scoreAchieved;
+			}
 		}
 
 		return acc;
@@ -744,23 +779,24 @@
 			</div>
 		</div>
 
-		<div class="clusters">
+		<div class="clustesrs">
 			<div class="current-clusters">
-				{#each currentClusters as cluster, i}
+				{#each currentClusters as cluster, i (cluster.key)}
 					<VisitFrequencyClusterComponent
 						{cluster}
-						impacts={calculateImpacts(cluster)}
 						chartData={{
 							current: currentClusters[i].historicData,
 							suggested: suggestedClusters[i].historicData,
 						}}
+						currentImpacts={historicCurrentImpacts[i]}
+						suggestedImpacts={historicSuggestedImpacts[i]}
 					/>
 				{/each}
 			</div>
 
 			<div class="suggested-clusters">
 				{#each suggestedClusters as cluster}
-					<VisitFrequencyClusterComponent {cluster} impacts={calculateImpacts(cluster)} />
+					<VisitFrequencyClusterComponent {cluster} />
 				{/each}
 			</div>
 		</div>
